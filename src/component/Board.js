@@ -1,53 +1,28 @@
 import React from 'react'
+import Square from 'Square.js';
 
-function Square(props) {
-    const style = {
-        btn: {
-            outline: '0px',
-            padding: '5px',
-            background: '#FFF',
-            border: '1px solid #CCC',
-            width: 100/3 + '%',
-            height: '100px',
-            position: 'relative'
-        },
-        span: {
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            top: '0',
-            left: '0',
-            fontSize: '2rem',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-        },
-        hover: {
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            top: '0',
-            left: '0',
-            fontSize: '2rem',
-            color: '#eee',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
+function calcWinner (squares) {
+    const lines = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+    ];
+
+    for(let i=0;i<lines.length;i++) {
+        const [a,b,c] = lines[i];
+        if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+            return squares[a];
         }
     }
-    return (
-        <button className="square" 
-                onClick={props.onClick} 
-                onMouseOver={props.onMouseOver} 
-                onMouseOut ={props.onMouseOut}
-                style={style.btn}>
-            <span style={style.span}>{props.value}</span>
-            <span style={style.hover}>{props.hoverState?props.tmpVal:''}</span>
-        </button>
-    );
+    return null;
 }
 
-class Board extends React.Component {
+export default class Board extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
@@ -141,47 +116,4 @@ class Board extends React.Component {
             </div>
         )
     }
-}
-
-class Info extends React.Component {
-    render () {
-        return (
-            <div className="game-info">
-                <div></div>
-                <ol></ol>
-            </div>
-        );
-    }
-}
-
-class Game extends React.Component {
-    render () {
-        return (
-            <div className="game">
-                <Board />
-                <Info  />
-            </div>
-        );
-    }
-}
-
-function calcWinner (squares) {
-    const lines = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6]
-    ];
-
-    for(let i=0;i<lines.length;i++) {
-        const [a,b,c] = lines[i];
-        if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-            return squares[a];
-        }
-    }
-    return null;
 }

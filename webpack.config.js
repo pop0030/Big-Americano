@@ -10,15 +10,7 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['es2015','react']
-                }
-            },
-            {
-                test: /\.jsx$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
@@ -26,6 +18,10 @@ module.exports = {
                 }
             }
         ]
+    },
+    resolve: {
+        modules: [`${__dirname}/src/`,`${__dirname}/src/component`,'node_modules'],
+        extensions: ['.js','.jsx','.css']
     },
     devServer: {
         inline: true,
