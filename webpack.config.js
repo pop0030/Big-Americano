@@ -1,4 +1,9 @@
-const HWP = require('html-webpack-plugin');
+const HWP = require('html-webpack-plugin')
+const webpack = require('webpack')
+const poststylus = require('poststylus')
+const cssnext = require('postcss-cssnext')
+const autoprefixer = require('autoprefixer')
+
 module.exports = {
     entry: [
         './src/app.js'
@@ -33,9 +38,16 @@ module.exports = {
         port: 3000
     },
     plugins: [
+        new webpack.LoaderOptionsPlugin({
+            options: {
+                stylus: {
+                    use: [ poststylus([ cssnext({autoprefixer: {browsers: "ie >= 10, ..."}}) ]) ]
+                }
+            }
+        }),
         new HWP({
             template: `${__dirname}/src/index.html`,
             filename: 'index.html'
         })
-    ]
+    ]    
 }
