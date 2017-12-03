@@ -1,8 +1,12 @@
 import React from 'react'
-export default class Header extends React.Component{
+import style from './Header.styl'
+
+class Header extends React.Component{
     render () {
         return (
             <header className="header">{this.props.name}</header>
         );
     }
 }
+
+export default Header

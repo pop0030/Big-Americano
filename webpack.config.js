@@ -16,12 +16,17 @@ module.exports = {
                 query: {
                     presets: ['es2015','react']
                 }
+            },
+            {
+                test: /\.styl$/,
+                exclude: /node_modules/,
+                loader: 'style-loader!css-loader!stylus-loader'
             }
         ]
     },
     resolve: {
         modules: [`${__dirname}/src/`,`${__dirname}/src/component`,'node_modules'],
-        extensions: ['.js','.jsx','.css']
+        extensions: ['.js','.jsx','.css','.styl']
     },
     devServer: {
         inline: true,
