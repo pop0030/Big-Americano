@@ -5,6 +5,7 @@ import { createStore } from 'redux'
 import reducer from './reducer'
 import { Provider } from 'react-redux'
 import App from './pages/App'
+import 'normalize.css'
 
 let store = createStore(reducer)
 

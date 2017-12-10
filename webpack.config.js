@@ -23,6 +23,10 @@ module.exports = {
                 }
             },
             {
+                test: /\.css$/,
+                loader: 'style-loader!css-loader'
+            },
+            {
                 test: /\.styl$/,
                 exclude: /node_modules/,
                 loader: 'style-loader!css-loader!stylus-loader'
