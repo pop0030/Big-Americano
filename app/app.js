@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-//import Game from 'Game.js'
 import { createStore } from 'redux'
 import reducer from './reducer'
 import { Provider } from 'react-redux'
 import App from './pages/App'
 import 'normalize.css'
+import 'common/css/main.styl'
 
 let store = createStore(reducer)
 

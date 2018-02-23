@@ -9,7 +9,6 @@ const App = () => (
   <div id="viewport">
     <Header name="header" />
     <Container />
-    <Footer name="footer" />
   </div>
 )
 

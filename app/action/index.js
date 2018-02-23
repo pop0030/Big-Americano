@@ -20,3 +20,10 @@ export const toggleTodo = (id) => {
     	id
   	}
 }
+
+export const popupAlert = (msg) => {
+	return {
+		type: 'POPUP_ALERT',
+		msg
+	}
+}

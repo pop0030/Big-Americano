@@ -10,7 +10,7 @@ const getVisibleTodos = (todos, filter) => {
       		return todos.filter(t => t.completed)
     	case 'SHOW_ACTIVE':
       		return todos.filter(t => !t.completed)
-  }
+  	}
 }
 
 const mapStateToProps = (state) => {
